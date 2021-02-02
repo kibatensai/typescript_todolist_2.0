@@ -8,7 +8,7 @@ import TodoList, { TaskObjType } from './TodoList'
 
 export type FilterValuesType = 'all' | 'completed' | 'active'
 
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
