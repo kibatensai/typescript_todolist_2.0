@@ -42,30 +42,20 @@ type ActionsType = RemoveTaskActionType
 export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksStateType => {
     switch(action.type) {
         case REMOVE_TASK:
-            const taskArrayForRemove = state[action.todolistId]
-            const filteredTasks = taskArrayForRemove.filter(t => t.id !== action.taskId)
-            state[action.todolistId] = filteredTasks
+            state[action.todolistId] = state[action.todolistId].filter(t => t.id !== action.taskId)
             return { ...state }
         case ADD_TASK:
-            const taskArrayForAdd = state[action.todolistId]
-            let newTask = {
-                id: v1(),
-                title: action.taskTitle,
-                isDone: false
-            }
-            let newTasks = [newTask, ...taskArrayForAdd]
-            state[action.todolistId] = newTasks
-            return { ...state }
+            let newTask = { id: v1(), title: action.taskTitle, isDone: false }
+            return { ...state,
+                     [action.todolistId]: [newTask, ...state[action.todolistId]] }
         case CHANGE_TASK_STATUS:
-            const taskArrayForStatus = state[action.todolistId]
-            let taskForStatus = taskArrayForStatus.find(t => t.id === action.taskId)
+            let taskForStatus = state[action.todolistId].find(t => t.id === action.taskId)
             if(taskForStatus) {
                 taskForStatus.isDone = action.isDone
             }
             return { ...state }
         case CHANGE_TASK_TITLE:
-            const taskArrayForTitle = state[action.todolistId]
-            let taskForTitle = taskArrayForTitle.find(t => t.id === action.taskId)
+            let taskForTitle = state[action.todolistId].find(t => t.id === action.taskId)
             if(taskForTitle) {
                 taskForTitle.title = action.newTitle
             }
