@@ -7,17 +7,7 @@ const ADD_TASK = 'ADD-TASK'
 const CHANGE_TASK_STATUS = 'CHANGE-TASK-STATUS'
 const CHANGE_TASK_TITLE = 'CHANGE-TASK-TITLE'
 
-const initialState: TasksStateType = {
-    [todolistId1]: [
-        { id: v1(), title: "HTML&CSS", isDone: true },
-        { id: v1(), title: "JS", isDone: true },
-        { id: v1(), title: "ReactJS", isDone: false },
-        { id: v1(), title: "Python", isDone: false }],
-    [todolistId2]: [
-        { id: v1(), title: "Book", isDone: false },
-        { id: v1(), title: "Milk", isDone: true }
-    ]
-}
+const initialState: TasksStateType = {}
 
 export type RemoveTaskActionType = {
     type: typeof REMOVE_TASK,
