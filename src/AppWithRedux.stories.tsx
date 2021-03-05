@@ -1,7 +1,7 @@
 import React from 'react'
 import AppWithRedux from './AppWithRedux';
 
-import {ReduxStoreProviderDecorator} from './stories/ReduxStorePrivoderDecorator'
+import {ReduxStoreProviderDecorator} from './stories/decorators/ReduxStorePrivoderDecorator'
 
 export default {
     title: 'AppWithRedux Component',

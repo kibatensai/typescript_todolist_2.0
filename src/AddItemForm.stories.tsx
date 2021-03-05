@@ -10,5 +10,5 @@ export default {
 const callback = action(`'Add' button was pressed`)
 
 export const AddItemFormBaseExample = (props: any) => {
-    return <><AddItemForm addItem={callback}/>s</>
+    return <><AddItemForm addItem={callback}/></>
 }
