@@ -5,7 +5,7 @@ import { v1 } from 'uuid';
 import AddItemForm from './AddItemForm';
 import { TaskPriorities, TaskStatuses, TaskType } from './api/todolists-api';
 import './App.css';
-import { addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer } from './state/tasks-reducer';
+import { addTaskAC, removeTaskAC, tasksReducer, updateTaskAC } from './state/tasks-reducer';
 import { addTodolistAC, changeTodolistFilterAC, changeTodolistTitleAC, FilterValuesType, removeTodolistAC, todolistsReducer } from './state/todolists-reducer';
 import TodoList from './TodoList'
 
@@ -45,15 +45,26 @@ function AppWithReducers() {
     }
 
     const addTask = (newTaskTitle: string, todolistId: string) => {
-        dispatchToTasksReducer(addTaskAC(newTaskTitle, todolistId))
+        dispatchToTasksReducer(addTaskAC({
+            todoListId: todolistId,
+            title: newTaskTitle,
+            status: TaskStatuses.New,
+            addedDate: '',
+            deadline: '',
+            description: '',
+            order: 0, 
+            priority: 0, 
+            startDate: '', 
+            id: 'testId'
+        }))
     }
 
     const changeStatus = (taskId: string, status: TaskStatuses, todolistId: string) => {
-        dispatchToTasksReducer(changeTaskStatusAC(taskId, status, todolistId))
+        dispatchToTasksReducer(updateTaskAC(taskId, {status}, todolistId))
     }
 
     const changeTaskTitle = (taskId: string, newTitle: string, todolistId: string) => {
-        dispatchToTasksReducer(changeTaskTitleAC(taskId, newTitle, todolistId))
+        dispatchToTasksReducer(updateTaskAC(taskId, {title:newTitle}, todolistId))
     }
 
     const changeTodolistTitle = (id: string, newTitle: string) => {
@@ -70,7 +81,12 @@ function AppWithReducers() {
     }
 
     const addTodolist = (title: string) => {
-        const action = addTodolistAC(title)
+        const action = addTodolistAC({
+            id: v1(),
+            addedDate: '',
+            order: 0,
+            title: title
+        })
         dispatchToTodolistsReducer(action)
         dispatchToTasksReducer(action)
     }

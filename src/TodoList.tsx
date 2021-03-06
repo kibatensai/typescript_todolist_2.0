@@ -1,9 +1,11 @@
 import { Button, IconButton } from '@material-ui/core'
 import { Delete } from '@material-ui/icons'
-import React, {  memo, useCallback } from 'react'
+import React, {  memo, useCallback, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import AddItemForm from './AddItemForm'
 import { TaskStatuses, TaskType } from './api/todolists-api'
 import EditableSpan from './EditableSpan'
+import { fetchTasksTC } from './state/tasks-reducer'
 import { FilterValuesType } from './state/todolists-reducer'
 import { Task } from './Task'
 
@@ -27,6 +29,12 @@ type TodoListPropsType = {
 const TodoList = memo(({id, title, tasks, filter, 
         removeTask, addTask, changeFilter, changeTaskStatus, 
         changeTaskTitle,  removeTodolist, changeTodolistTitle}: TodoListPropsType) => {
+
+    const dispatch = useDispatch()
+    
+    useEffect(() => {
+        dispatch(fetchTasksTC(id))
+    }, [])
 
     const onAllClickHandler = useCallback(() => changeFilter('all', id), [changeFilter, id])
     const onActiveClickHandler = useCallback(() => changeFilter('active', id), [changeFilter, id])

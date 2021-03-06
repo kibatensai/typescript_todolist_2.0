@@ -8,6 +8,8 @@ import AppWithRedux from './AppWithRedux';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
 
+const AppWithReducersComponent = AppWithReducers
+
 ReactDOM.render(
     <Provider store={store}>
         <AppWithRedux />
