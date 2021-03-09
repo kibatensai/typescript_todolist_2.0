@@ -2,12 +2,12 @@ import { Button, IconButton } from '@material-ui/core'
 import { Delete } from '@material-ui/icons'
 import React, {  memo, useCallback, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import AddItemForm from './AddItemForm'
-import { TaskStatuses, TaskType } from './api/todolists-api'
-import EditableSpan from './EditableSpan'
-import { fetchTasksTC } from './state/tasks-reducer'
-import { FilterValuesType } from './state/todolists-reducer'
-import { Task } from './Task'
+import AddItemForm from '../../../components/AddItemForm/AddItemForm'
+import { TaskStatuses, TaskType } from '../../../api/todolists-api'
+import EditableSpan from '../../../components/EditableSpan/EditableSpan'
+import { fetchTasksTC } from '../tasks-reducer'
+import { FilterValuesType } from '../todolists-reducer'
+import { Task } from './Task/Task'
 
 type TodoListPropsType = {
     id: string
@@ -23,8 +23,6 @@ type TodoListPropsType = {
     changeTodolistTitle: (id: string, newTitle: string) => void
 
 }
-
-
 
 const TodoList = memo(({id, title, tasks, filter, 
         removeTask, addTask, changeFilter, changeTaskStatus, 
@@ -71,12 +69,13 @@ const TodoList = memo(({id, title, tasks, filter,
                 <AddItemForm addItem={addTaskHandler} />
             <div>
                 {
-                    tasksForTodolist.map(t => <Task task={t}
+                    tasksForTodolist.map(t => <Task key={t.id}
+                                            task={t}
                                             changeTaskStatus={changeTaskStatus}
                                             changeTaskTitle={changeTaskTitle}
                                             removeTask={removeTask}
                                             todolistId={id}
-                                            key={t.id} />)
+                                             />)
                 }
             </div>
             <div>
