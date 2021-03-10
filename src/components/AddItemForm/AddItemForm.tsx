@@ -4,9 +4,10 @@ import React, { KeyboardEvent, ChangeEvent, useState, memo} from 'react'
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
+    disabled?: boolean
 }
 
-const AddItemForm = memo((props: AddItemFormPropsType) => {
+const AddItemForm = memo(({addItem, disabled = false}: AddItemFormPropsType) => {
 
     const [newTaskTitle, setNewTaskTitle] = useState('')
     const [error, setError] = useState<string | null>(null)
@@ -18,14 +19,14 @@ const AddItemForm = memo((props: AddItemFormPropsType) => {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) { setError(null) }
         if (e.key === 'Enter') {
-            addNewTask()
+            addItemHandler()
             setNewTaskTitle('')
         }
     }
 
-    const addNewTask = () => {
+    const addItemHandler = () => {
         if (newTaskTitle.trim() !== '') { 
-            props.addItem(newTaskTitle.trim())
+            addItem(newTaskTitle.trim())
             setNewTaskTitle('')
             setError(null)
         } else {
@@ -36,6 +37,7 @@ const AddItemForm = memo((props: AddItemFormPropsType) => {
     return (
         <div>
         <TextField style={ { padding: '5px' } }
+            disabled={disabled}
             label={'Type value'}
             value={newTaskTitle}
             onChange={onNewTaskTitleChangeHandler}
@@ -43,7 +45,7 @@ const AddItemForm = memo((props: AddItemFormPropsType) => {
             error={!!error}
             helperText={error}
         />
-        <IconButton onClick={addNewTask} color={'primary'}>
+        <IconButton onClick={addItemHandler} color={'primary'} disabled={disabled}>
             <ControlPoint />
         </IconButton>
 

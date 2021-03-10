@@ -8,14 +8,17 @@ import { TasksStateType, removeTaskTC, addTaskTC, updateTaskTC } from "./tasks-r
 import TodoList from "./Todolist/TodoList"
 import { TodolistDomainType, fetchTodolistsTC, changeTodolistTitleTC, FilterValuesType, changeTodolistFilterAC, removeTodolistTC, addTodolistTC } from "./todolists-reducer"
 
-type TodolistsListPropsType = {
+type PropsType = {
+    demo?: boolean
 }
-const TodolistsList: FC<TodolistsListPropsType> = () => {
+
+const TodolistsList: FC<PropsType> = ({demo = false}) => {
     const dispatch = useDispatch()
     const todolists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TasksStateType>(state => state.tasks)
 
     useEffect(() => {
+        if(demo) {return}
         dispatch(fetchTodolistsTC())
     }, [dispatch])
 
@@ -63,17 +66,16 @@ const TodolistsList: FC<TodolistsListPropsType> = () => {
                     return <Grid item key={tl.id}>
                         <Paper elevation={2} style={{ padding: '10px' }}>
                             <TodoList
-                                id={tl.id}
-                                title={tl.title}
+                                todolist={tl}
                                 tasks={tasksForTodoList}
                                 removeTask={removeTask}
                                 addTask={addTask}
                                 changeFilter={changeFilter}
                                 changeTaskStatus={changeStatus}
                                 changeTaskTitle={changeTaskTitle}
-                                filter={tl.filter}
                                 removeTodolist={removeTodolist}
-                                changeTodolistTitle={changeTodolistTitle} />
+                                changeTodolistTitle={changeTodolistTitle} 
+                                demo={demo}/>
                         </Paper>
                     </Grid>
                 })
