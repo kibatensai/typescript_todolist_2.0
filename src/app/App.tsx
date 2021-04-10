@@ -7,7 +7,7 @@ import { ErrorSnackbar } from '../components/ErrorSnackbar/ErrorSnackbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeAppTC, RequestStatusType } from './app-reducer';
 import { AppRootState } from './store';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Login } from '../features/Login/Login';
 import { logoutTC } from '../features/Login/auth-reducer';
 
@@ -53,12 +53,18 @@ const App: FC<PropsType> = ({demo = false}) => {
             </AppBar>
             <Container fixed>
                 {status === 'loading' && <LinearProgress />}
-                <Route exact path={'/'}>
-                    <TodolistsList demo={demo}/>
-                </Route>
-                <Route path={'/login'}>
-                    <Login />
-                </Route>
+                <Switch>
+                    <Route exact path={'/'}>
+                        <TodolistsList demo={demo}/>
+                    </Route>
+                    <Route path={'/login'}>
+                        <Login />
+                    </Route>
+                    <Route path={'/404'}>
+                        <h1>404: PAGE NOT FOUND</h1>
+                    </Route>
+                    <Redirect from={'*'} to={'/404'} />
+                </Switch>
             </Container>
         </div>
         </BrowserRouter>

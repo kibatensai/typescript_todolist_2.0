@@ -19,7 +19,7 @@ export const Login = () => {
                 }
             }
             if (!values.password) {
-                return { 
+                return {
                     password: 'Password is required'
                 }
             }
@@ -31,6 +31,7 @@ export const Login = () => {
         },
         onSubmit: values => {
             dispatch(loginTC(values))
+            formik.resetForm()
         },
       });
 
@@ -62,6 +63,7 @@ export const Login = () => {
                         label='Email'
                         margin='normal'
                         {...formik.getFieldProps('email')}
+
                     />
                     {formik.errors.email ? <div>{formik.errors.email}</div> : null}
                       <TextField
@@ -76,7 +78,7 @@ export const Login = () => {
                         control={<Checkbox {...formik.getFieldProps('rememberMe')}
                                         checked={formik.values.rememberMe} />}
                     />
-                    <Button type={'submit'} variant={'contained'} color={'primary'}>Login</Button>
+                    <Button type={'submit'} variant={'contained'} color={'primary'} >Login</Button>
                 </FormGroup>
             </FormControl>
             </form>

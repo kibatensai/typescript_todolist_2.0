@@ -47,7 +47,7 @@ const TodolistsList: FC<PropsType> = ({demo = false}) => {
     }, [dispatch])
 
     const changeFilter = useCallback((value: FilterValuesType, todolistId: string) => {
-        dispatch(changeTodolistFilterAC(value, todolistId))
+        dispatch(changeTodolistFilterAC({filter: value, id: todolistId}))
     }, [dispatch])
 
     const removeTodolist = useCallback((todolistId: string) => {
@@ -82,7 +82,7 @@ const TodolistsList: FC<PropsType> = ({demo = false}) => {
                                 changeTaskStatus={changeStatus}
                                 changeTaskTitle={changeTaskTitle}
                                 removeTodolist={removeTodolist}
-                                changeTodolistTitle={changeTodolistTitle} 
+                                changeTodolistTitle={changeTodolistTitle}
                                 demo={demo}/>
                         </Paper>
                     </Grid>

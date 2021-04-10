@@ -1,7 +1,7 @@
 import React from 'react'
 import App from './App';
 
-import {ReduxStoreProviderDecorator} from '../stories/decorators/ReduxStorePrivoderDecorator'
+import { ReduxStoreProviderDecorator } from '../stories/decorators/ReduxStorePrivoderDecorator'
 
 export default {
     title: 'App Component',
@@ -11,6 +11,6 @@ export default {
 
 export const AppBaseExample = () => {
     return <>
-            <App demo={true}/>
-           </>
+        <App demo={true} />
+    </>
 }
