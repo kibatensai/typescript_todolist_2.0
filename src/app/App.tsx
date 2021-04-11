@@ -23,7 +23,9 @@ const App: FC<PropsType> = ({demo = false}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        if (!demo) {
         dispatch(initializeAppTC())
+        }
     }, [])
 
     const logoutHandler = useCallback(()=> {
@@ -37,7 +39,7 @@ const App: FC<PropsType> = ({demo = false}) => {
     }
 
     return (
-        <BrowserRouter>
+
         <div className="App">
             <ErrorSnackbar />
             <AppBar position='static'>
@@ -67,7 +69,6 @@ const App: FC<PropsType> = ({demo = false}) => {
                 </Switch>
             </Container>
         </div>
-        </BrowserRouter>
     );
 }
 
