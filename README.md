@@ -13,6 +13,6 @@
 ![NodeJS](https://img.shields.io/badge/-NodeJS-090909?style=for-the-badge&logo=Node.js)
 
 ### It helped me to expand my area of knowledge
-<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" width="400" height="790">
+<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" width="300" height="300">
 
 ### 💌 Message me if you have something to say
