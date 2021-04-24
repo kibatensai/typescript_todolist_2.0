@@ -1,4 +1,8 @@
-# :hocho:  Welcome! It's a [Todolist App](https://kibatensai.github.io/typescript_todolist_2.0) 
+# :hocho:  Welcome! It's a :shipit: [Todolist App](https://kibatensai.github.io/typescript_todolist_2.0) :shipit:
+
+<a href='https://kibatensai.github.io/typescript_todolist_2.0'>
+<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" width="400" height="225">
+</a>
 
 ## It was made with following technologies:
 ![ReactJS](https://img.shields.io/badge/-ReactJS-090909?style=for-the-badge&logo=React)
@@ -12,9 +16,6 @@
 ![Babel](https://img.shields.io/badge/-Babel-090909?style=for-the-badge&logo=Babel)
 ![NodeJS](https://img.shields.io/badge/-NodeJS-090909?style=for-the-badge&logo=Node.js)
 
-### It helped me to expand my area of knowledge
-<a href='https://kibatensai.github.io/typescript_todolist_2.0'>
-<img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" width="400" height="225">
-</a>
 
+### It helped me to expand my area of knowledge
 ### 💌 Message me if you have something to say
