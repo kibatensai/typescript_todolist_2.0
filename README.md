@@ -13,6 +13,6 @@
 ![NodeJS](https://img.shields.io/badge/-NodeJS-090909?style=for-the-badge&logo=Node.js)
 
 ### It helped me to expand my area of knowledge
-### ![farmer meme](https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg)
+### ![farmer meme](https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg =250x250)
 
 ### 💌 Message me if you have something to say
