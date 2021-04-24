@@ -18,4 +18,4 @@
 
 
 ### It helped me to expand my area of knowledge
-![💌 Message me if you have something to say](https://t.me/kibatensai)
+### ![💌](https://t.me/kibatensai) Message me if you have something to say
