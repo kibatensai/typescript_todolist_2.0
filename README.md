@@ -1,4 +1,4 @@
-# :hocho:  Welcome! It's a :shipit: [Todolist App](https://kibatensai.github.io/typescript_todolist_2.0) :shipit:
+# Welcome! It's a :shipit: [Todolist App](https://kibatensai.github.io/typescript_todolist_2.0) :shipit:
 
 <a href='https://kibatensai.github.io/typescript_todolist_2.0'>
 <img src="https://i.kym-cdn.com/entries/icons/original/000/028/021/work.jpg" width="400" height="225">
