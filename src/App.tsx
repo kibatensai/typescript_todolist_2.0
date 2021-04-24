@@ -41,16 +41,16 @@ function App() {
     const changeStatus = (taskId: string, isDone: boolean, todolistId: string) => {
         let taskArray = tasksObj[todolistId]
         let task = taskArray.find(t => t.id === taskId)
-        if (task) { 
-            task.isDone = isDone 
+        if (task) {
+            task.isDone = isDone
             setTasks({...tasksObj}) }
     }
 
     const changeTaskTitle = (taskId: string, newTitle: string, todolistId: string) => {
         let taskArray = tasksObj[todolistId]
         let task = taskArray.find(t => t.id === taskId)
-        if (task) { 
-            task.title = newTitle 
+        if (task) {
+            task.title = newTitle
             setTasks({...tasksObj}) }
     }
 
